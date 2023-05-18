@@ -2,6 +2,7 @@
 # # # Admin log in page
 Company_name = input("Input your Company Name ! ")
 print(Company_name.upper())
+print(" ")
 
 def Admin_login(fname):
     """
@@ -15,15 +16,19 @@ def Admin_login(fname):
     """
     admin_names = {"Victor":1, "Marvel":2, "Mercy":3}
     if fname in admin_names:
+        print("")
         return f"Welcome dear {fname}, Admin no: " + str(admin_names[fname])
+        
+    return fname +" you must be an Admin to log in !"+ "\n"
 
-    
-    return fname +" you must be an Admin to log in !"
+admin_name = {"Victor":1, "Marvel":2, "Mercy":3}
 
-
-first_name = str(input("Please Enter your Admin name to login: "))
-print(Admin_login(first_name))
-
+while True:
+    first_name = str(input("Please Enter your Admin name to login: "))
+    print(Admin_login(first_name))
+    if first_name in admin_name:
+        break
+            # return fname +" you must be an Admin to log in !"
 
 
 #getting the items
@@ -33,11 +38,13 @@ while True:
     try:
         items = str(input(f"Enter the item bought {x}: "))
         if items == "Done":
+            print("\n")
             break
 
         prices = float(input(f"Enter the price of {items} {x}: "))
 
         qauntity = int(input(f"Enter quantity of {items} {x}: "))
+        print("\n")
         x = x+1
 
         if items not in Grocery_list:
@@ -84,7 +91,7 @@ print("SUB TOTAL      = ",total_vat)
 print(f"VAT               {vat}")
 print(f"consumption tax   {consumption_tax}           ")
 print("                  ===========")
-print(F"TOTAL          =  {total}")
+print(f"TOTAL          =  {total}")
 print("                  ===========")
 admin = f'Admin: {first_name}'
 print("Thank you for purchasing with us ! ", " ", "Outstanding Service Everytime !", " ",admin," ",sep = "\n")
